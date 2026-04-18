@@ -55,6 +55,20 @@ app.use('/scan', require('./routes/scan'));
 app.use('/alerts', require('./routes/alerts'));
 app.use('/digest', require('./routes/digest'));
 
+// ─── Production Deployment (Frontend Serving) ───────────────────
+if (process.env.NODE_ENV === 'production' || process.env.SERVE_FRONTEND === 'true') {
+  const path = require('path');
+  const clientDist = path.join(__dirname, '../client/dist');
+  
+  // Serve static assets
+  app.use(express.static(clientDist));
+
+  // Catch-all route for SPA navigation
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
+
 // ─── Bills endpoint (proxy to sheetsService for frontend) ─────
 const { requireAuth } = require('./middleware/authMiddleware');
 const sheetsService = require('./services/sheetsService');

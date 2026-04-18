@@ -1,0 +1,17 @@
+.git
+.gitignore
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+dist/
+tokens.enc
+status.json
+.env
+*.log
+Dockerfile
+.gcloudignore
+.dockerignore
+package-lock.json
+client/package-lock.json
+server/package-lock.json
