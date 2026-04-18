@@ -1,0 +1,22 @@
+{
+  "name": "billguard-ai-server",
+  "version": "1.0.0",
+  "description": "BillGuard AI — Silent financial watchdog backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "cookie-session": "^2.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.3.0",
+    "googleapis": "^171.0.0",
+    "helmet": "^8.1.0",
+    "@google/genai": "^1.50.0",
+    "node-cron": "^3.0.3",
+    "pdfkit": "^0.18.0"
+  }
+}
